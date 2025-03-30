@@ -1,0 +1,13 @@
+.unclassifyview {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    .leffmenu {
+        width: 240px;
+        margin: 16px 18px 0 0;
+    }
+    .rightcontent {
+        flex: 1;
+        height: 300px;
+    }
+}

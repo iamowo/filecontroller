@@ -1,0 +1,36 @@
+@use "../../style/base.scss";
+
+.menusbox {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 5px 20px 0;
+    color: base.$fcd;
+    .oneline {
+        width: 100%;
+        height: 48px;
+        box-sizing: border-box;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 6px;
+        cursor: pointer;
+        .addvid {
+            height: 20px;
+            display: flex;
+            .iocnfont {
+                margin-right: 10px;
+            }
+        }
+        &:hover {
+            background-color: base.$hovergrey;
+        }
+    }
+    .oneline-active {
+        background-color: base.$activecolor;
+        color: #fff;
+        &:hover {
+            background-color: base.$activecolor;
+        }
+    }
+}

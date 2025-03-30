@@ -1,0 +1,134 @@
+@use '../../style/base';
+
+.homeview {
+    width: 2560px;
+    min-height: 100vh;
+    background-color: #fff;
+    margin: 0 auto;
+
+    .topimgbox {
+        width: 100%;
+        height: 200px;
+        background-color: pink;
+    }
+    .wallpercontent {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 120px;
+        .contentbox {
+            width: 100%;
+            .topline {
+                width: 100%;
+                height: 64px;
+                display: flex;
+                justify-content: space-between;
+                font-size: base.$tfc;
+                // box-shadow: 0 0 0 1px #F1F2F3;
+                .topleft {
+                    display: flex;
+                    height: 64px;
+                    a {
+                        // 选择第一个子元素
+                        &:nth-child(1) {
+                            .topbox {
+                                margin-left: 0;
+                            }
+                            margin-left: 0;
+                        }
+                        .topbox {
+                            height: 64px;
+                            display: flex;
+                            margin-left: 30px;
+                            &:hover {
+                                cursor: pointer;
+                                color: base.$activecolor;
+                            }
+                            .lefticonbox {
+                                width: 20px;
+                                height: 64px;
+                                line-height: 64px;
+                                text-align: center;
+                            }
+                            .rightcontent {
+                                margin-left: 4px;
+                                height: 64px;
+                                line-height: 64px;
+                            }
+                        }
+                        .topbox-active {
+                            color: base.$activecolor;
+                            font-weight: base.$activeweight;
+                        }
+                    }
+                    .topsearch {
+                        box-sizing: border-box;
+                        padding-left: 30px;
+                        height: 64px;
+                        .searchbox {
+                            margin-top: 16px;
+                            width: 150px;
+                            height: 30px;
+                            border-radius: 4px;
+                            display: flex;
+                            align-items: center;
+                            box-sizing: border-box;
+                            padding-left: 10px;
+                            border: 1px solid #e3e5e7;
+                            // 子类获得focus时候
+                            &:focus-within {
+                                border-color: base.$activecolor;
+                            }
+                            .inpbox {
+                                height: 20px;
+                                width: 105px;
+                                border: 0;
+                                outline: none;
+                            }
+                            .iconbox {
+                                margin-left: 5px;
+                                height: 30px;
+                                width: 20px;
+                                line-height: 30px;
+                                text-align: center;
+                                .iconfont {
+                                    font-size: 15px;
+                                    cursor: pointer;
+                                    user-select: none;
+                                    &:hover {
+                                        color: base.$activecolor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .topright {
+                    display: flex;
+                    height: 64px;
+                    .toprightbox {
+                        height: 64px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        user-select: none;
+                        &:hover {
+                            color: base.$activecolor;
+                        }
+                        .icon {
+                            margin-right: 6px;
+                        }
+                    }
+                    .toprightbox-active {
+                        font-weight: base.$activeweight;
+                        color: base.$activecolor;
+                    }
+                }
+            }
+            .contentbox {
+                width: 100%;
+                height: 500px;
+            }
+        }
+    }
+}

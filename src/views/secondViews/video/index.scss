@@ -1,0 +1,14 @@
+@use "../../../style/base.scss";
+
+.videoview {
+    width: 100%;
+    display: flex;
+    .leffmenu {
+        width: 240px;
+        margin: 18px 16px 0 0;
+    }
+    .rightcontent {
+        flex: 1;
+        margin-top: 30px;
+    }
+}

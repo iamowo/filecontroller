@@ -1,52 +1,50 @@
-import {
-    createBrowserRouter
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
-import Home from '../views/home/home'
+import Home from "../views/home/home";
 import MainView from "../views/secondViews/main/main";
 import VideoView from "../views/secondViews/video/video";
-import  ImgsView from '../views/secondViews/imgs/imgs'
-import MangaView from '../views/secondViews/manga/manga'
-import SettingView from '../views/secondViews/setting/setting'
-import MusicView from '../views/secondViews/music/music'
-import UnClassify from "../views/secondViews/unclassify/unclassify";
+import ImgsView from "../views/secondViews/imgs/imgs";
+import MangaView from "../views/secondViews/manga/manga";
+import SettingView from "../views/secondViews/setting/setting";
+import MusicView from "../views/secondViews/music/music";
+import UnCategorized from "../views/secondViews/uncategorized/uncategorized";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
     children: [
       {
         index: true,
         path: "main",
-        element: <MainView />
+        element: <MainView />,
       },
       {
         path: "videos",
-        element: <VideoView />
+        element: <VideoView />,
       },
       {
         path: "imgs",
-        element: <ImgsView />
+        element: <ImgsView />,
       },
       {
         path: "mangas",
-        element: <MangaView />
+        element: <MangaView />,
       },
       {
         path: "musics",
-        element: <MusicView />
+        element: <MusicView />,
       },
       {
         path: "setting",
-        element: <SettingView />
+        element: <SettingView />,
       },
       {
-        path: "unclassify",
-        element: <UnClassify />
-      }
-    ]
-  }
-  ])
+        path: "uncategorized/:type",
+        element: <UnCategorized />,
+      },
+    ],
+  },
+]);
 
-  export default router
+export default router;

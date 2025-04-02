@@ -1,18 +1,19 @@
-@use 'base';
+@use "base";
 
 body {
-    margin: 0;
-    font-family: 'micosoft', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    font-size: base.$fs;
-    background-color: base.$bgc;
-    a {
-      color: base.$fcd;
-      text-decoration: none;
-    }
+  margin: 0;
+  font-family: "micosoft", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-size: base.$fs;
+  background-color: base.$bgc;
+  display: flex;
+  justify-content: center;
+  a {
+    color: base.$fcd;
+    text-decoration: none;
   }
-  
+}

@@ -1,0 +1,58 @@
+.box1 {
+    width: 400px;
+    min-height: 30px;
+    line-height: 30px;
+}
+.tag-input-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    min-height: 42px;
+    cursor: text;
+    background: pink;
+  }
+  
+  .tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .tag-remove {
+    margin-left: 6px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+  .tag-remove:hover {
+    color: #666;
+  }
+  
+  .tag-input {
+    flex: 1;
+    min-width: 100px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 6px;
+  }
+  
+  .tag-input:focus {
+    outline: none;
+  }

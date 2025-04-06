@@ -1,0 +1,149 @@
+{
+  "id": "4881627",
+  "name": "fc",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1269",
+      "name": "加",
+      "font_class": "jia3",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "1270",
+      "name": "错误",
+      "font_class": "cuowu",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "1302",
+      "name": "加",
+      "font_class": "jia2",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "1005712",
+      "name": "full",
+      "font_class": "full",
+      "unicode": "e7bc",
+      "unicode_decimal": 59324
+    },
+    {
+      "icon_id": "1305451",
+      "name": "标签",
+      "font_class": "biaoqian",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "2154997",
+      "name": "播放器-暂停（小电视）",
+      "font_class": "bofangqi-zantingxiaodianshi",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "7592575",
+      "name": "24gf-volumeCross",
+      "font_class": "24gf-volumeCross",
+      "unicode": "ea0f",
+      "unicode_decimal": 59919
+    },
+    {
+      "icon_id": "7592581",
+      "name": "24gf-volumeHigh",
+      "font_class": "24gf-volumeHigh",
+      "unicode": "ea11",
+      "unicode_decimal": 59921
+    },
+    {
+      "icon_id": "7594152",
+      "name": "24gf-pause2",
+      "font_class": "24gf-pause2",
+      "unicode": "ea81",
+      "unicode_decimal": 60033
+    },
+    {
+      "icon_id": "11372701",
+      "name": "收藏",
+      "font_class": "shoucang7",
+      "unicode": "e8b9",
+      "unicode_decimal": 59577
+    },
+    {
+      "icon_id": "11372777",
+      "name": "收藏",
+      "font_class": "shoucang11",
+      "unicode": "e8c6",
+      "unicode_decimal": 59590
+    },
+    {
+      "icon_id": "11808714",
+      "name": "播放",
+      "font_class": "icon_play",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12978133",
+      "name": "关闭",
+      "font_class": "guanbi1",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "13604662",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "15838601",
+      "name": "fullscreen-expand-filling",
+      "font_class": "fullscreen-expand-filling",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "17665148",
+      "name": "显示方式",
+      "font_class": "xianshifangshi",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "23602864",
+      "name": "显示方式",
+      "font_class": "xianshifangshi1",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "31314867",
+      "name": "下一集",
+      "font_class": "xiayiji",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "33073048",
+      "name": "画中画",
+      "font_class": "huazhonghua",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "29570593",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    }
+  ]
+}

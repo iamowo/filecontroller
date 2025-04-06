@@ -4,7 +4,7 @@ const baseURL = "http://localhost:8099";
 
 const http = axios.create({
   baseURL: baseURL + "/api/file",
-  timeout: 15000,
+  timeout: 30000,
   headers: {},
 });
 
@@ -42,15 +42,15 @@ http.interceptors.response.use(
     }
   },
   (error) => {
-    if (error.response.status === 401) {
-      console.log("==token失效==");
-      localStorage.removeItem("userinfo");
-      localStorage.removeItem("token");
-      // window.open(baseUrl2 + "/")
-      document.location.reload();
-    } else {
-      console.log("其他错误");
-    }
+    // if (error.response.status === 401) {
+    //   console.log("==token失效==");
+    //   localStorage.removeItem("userinfo");
+    //   localStorage.removeItem("token");
+    //   window.open(baseUrl2 + "/")
+    //   document.location.reload();
+    // } else {
+    //   console.log("其他错误");
+    // }
     return Promise.reject(error);
   }
 );

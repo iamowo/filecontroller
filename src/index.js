@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './style/global.scss';
+import './static/font/iconfont.css'
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from "react-router-dom";
 import router from './router';

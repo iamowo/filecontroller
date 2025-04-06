@@ -9,6 +9,8 @@ import SettingView from "../views/secondViews/setting/setting";
 import MusicView from "../views/secondViews/music/music";
 import UnCategorized from "../views/secondViews/uncategorized/uncategorized";
 
+import Test from "../views/test/test";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
         path: "uncategorized/:type",
         element: <UnCategorized />,
       },
+      {
+        path: "test",
+        element: <Test />,
+      }
     ],
   },
 ]);

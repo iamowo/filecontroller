@@ -1,9 +1,9 @@
-import './index.scss'
-import React, { useState, useRef, useEffect } from 'react';
+import "./index.scss";
+import React, { useState, useRef, useEffect } from "react";
 
 const TagInput = ({ onTagsChange }) => {
   const [tags, setTags] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -13,7 +13,7 @@ const TagInput = ({ onTagsChange }) => {
       const newTags = [...tags, tag.trim()];
       setTags(newTags);
       onTagsChange(newTags);
-      setInputValue('');
+      setInputValue("");
     }
   };
 
@@ -26,10 +26,10 @@ const TagInput = ({ onTagsChange }) => {
 
   // 处理键盘事件
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && inputValue.trim()) {
+    if (e.key === "Enter" && inputValue.trim()) {
       e.preventDefault();
       addTag(inputValue);
-    } else if (e.key === 'Backspace' && !inputValue && tags.length > 0) {
+    } else if (e.key === "Backspace" && !inputValue && tags.length > 0) {
       // 删除最后一个标签
       removeTag(tags.length - 1);
     }
@@ -41,22 +41,22 @@ const TagInput = ({ onTagsChange }) => {
   };
 
   // 外部点击时也聚焦输入框
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        inputRef.current.focus();
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = (e) => {
+  //     if (containerRef.current && !containerRef.current.contains(e.target)) {
+  //       inputRef.current.focus();
+  //     }
+  //   };
 
-    document.addEventListener('click', handleOutsideClick);
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, []);
+  //   document.addEventListener('click', handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener('click', handleOutsideClick);
+  //   };
+  // }, []);
 
   return (
-    <div 
-      className="tag-input-container" 
+    <div
+      className="tag-input-container"
       ref={containerRef}
       onClick={handleContainerClick}
     >
@@ -64,8 +64,8 @@ const TagInput = ({ onTagsChange }) => {
         {tags.map((tag, index) => (
           <div key={index} className="tag">
             {tag}
-            <button 
-              className="tag-remove" 
+            <button
+              className="tag-remove"
               onClick={(e) => {
                 e.stopPropagation();
                 removeTag(index);
@@ -82,7 +82,7 @@ const TagInput = ({ onTagsChange }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={tags.length === 0 ? '添加标签，按回车确认' : ''}
+          placeholder={tags.length === 0 ? "添加标签，按回车确认" : ""}
         />
       </div>
     </div>
@@ -90,17 +90,15 @@ const TagInput = ({ onTagsChange }) => {
 };
 
 const Test = () => {
-    const [tagchange, onTagsChange] = useState([])
-    return (
-        <div className="viewtest">
-            1231123
-            <div className="box1">
-                <TagInput 
-                    onTagsChange={onTagsChange}
-                />
-            </div>
-        </div>
-    )
-}
+  const [tagchange, onTagsChange] = useState([]);
+  return (
+    <div className="viewtest">
+      1231123
+      <div className="box1">
+        <TagInput onTagsChange={onTagsChange} />
+      </div>
+    </div>
+  );
+};
 
-export default Test
+export default Test;

@@ -99,11 +99,41 @@
     margin-top: 24px;
     width: 100%;
     height: 2200px;
+    @media (min-width: 2060px) {
+      .viceocontentstyle {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        background-color: pink;
+      }
+    }
+    @media ((max-width: 2059px) and (min-width: 1801px)) {
+      .viceocontentstyle {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        background-color: blue;
+      }
+    }
+    @media ((max-width: 1800px) and (min-width: 1601px)) {
+      .viceocontentstyle {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        background-color: red;
+      }
+    }
+    @media ((max-width: 1600px) and (min-width: 1500px)) {
+      .viceocontentstyle {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        background-color: green;
+      }
+    }
+    @media (max-width: 1500px) {
+      .viceocontentstyle {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        background-color: grey;
+      }
+    }
     .viceocontentstyle {
       width: 100%;
       height: 100%;
       display: grid;
-      grid-template-columns: repeat(8, minmax(0, 1fr));
+      // grid-template-columns: repeat(8, minmax(0, 1fr));
       // grid-template-columns: repeat(6, 1fr);
       grid-gap: 20px;
       // 不设置行高的话，会拉伸

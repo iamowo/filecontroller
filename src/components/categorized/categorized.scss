@@ -1,142 +1,304 @@
-@use '../../style/base.scss';
+@use "../../style/base.scss";
 
 .categorizedbox {
-    position: fixed;
-    width: 520px;
-    border-radius: 8px;
-    background-color: #ffffffD0;
-    box-sizing: border-box;
-    padding: 0 20px 60px;
-    z-index: 99;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    font-size: 14px;
-    color: #222;
-    .topline {
+  position: fixed;
+  width: 520px;
+  border-radius: 8px;
+  background-color: #ffffffd0;
+  box-sizing: border-box;
+  padding: 0 20px 20px;
+  z-index: 99;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-size: 14px;
+  color: #222;
+  .topline {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .midtext {
+      font-weight: 600;
+    }
+    .iconfont {
+      font-size: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  .tpye1 {
+    .one-line1 {
+      margin-top: 20px;
+      width: 100%;
+      min-height: 50px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      position: relative;
+      padding: 10px 15px;
+      display: flex;
+      background-color: #fff;
+      z-index: 100;
+      cursor: text;
+      .tptext {
+        z-index: 99;
+        width: 60px;
+        height: 18px;
+        background-color: #fff;
+        position: absolute;
+        line-height: 18px;
+        top: -10px;
+        left: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 13px;
+      }
+      .inp1 {
+        flex: 1; /* 修改这一行 */
+        height: 30px;
+        border: 0;
+        outline: none;
+        background-color: #fff;
+      }
+      .inp2 {
         width: 100%;
-        height: 40px;
+        height: 80px;
+        border: 0;
+        outline: none;
+        background-color: #fff;
+        line-height: 20px;
+        resize: none;
+        font-family: "micosoft";
+      }
+      .taginput-container {
+        min-height: 30px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .midtext {
-            font-weight: 600;
+        flex-wrap: wrap;
+        gap: 6px;
+        .onekeyword {
+          display: inline-flex;
+          height: 30px;
+          line-height: 30px;
+          padding: 0 25px 0 10px;
+          background-color: #00aeec;
+          color: #fff;
+          border-radius: 4px;
+          //   margin: 5px 10px 5px 0;
+          position: relative;
+          z-index: 101;
+          cursor: pointer;
+          .iconfont {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            translate: -50% -50%;
+            font-size: 15px;
+            right: -5px;
+            color: rgb(230, 80, 102);
+          }
         }
-        .iconfont {
-            font-size: 25px;
-            cursor: pointer;
-            user-select: none;
+        .inp3 {
+          flex: 1;
+          min-width: 2px;
+          border: none;
+          outline: none;
+          font-size: 14px;
+          padding: 6px;
         }
-    }
-    .tpye1 {
-        .one-line1 {
-            margin-top: 20px;
-            width: 100%;
-            min-height: 50px;
-            border-radius: 8px;
-            box-sizing: border-box;
-            border: 1px solid #fff;
-            position: relative;
-            padding: 10px 15px;
-            display: flex;
-            align-items: flex-start; /* 添加这一行 */
+      }
+      .matchingkeybox {
+        left: 0;
+        top: 65px;
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        border-radius: 4px;
+        overflow-y: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        // 避免行距大
+        align-content: flex-start;
+        justify-content: left;
+        gap: 6px;
+        .onematch {
+          display: inline-flex;
+          line-height: 30px;
+          height: 30px;
+          padding: 0 10px;
+          background-color: base.$activecolor;
+          color: #fff;
+          border-radius: 4px;
+          cursor: pointer;
+          user-select: none;
+          &:hover {
+            background-color: #24a6e7;
+          }
+        }
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 0; // 只显示垂直滚动条
+        }
 
-            flex-wrap: wrap;
-            background-color: #fff;
-            z-index: 100;
-            .tptext {
-                z-index: 99;
-                width: 60px;
-                height: 18px;
-                background-color: #fff;
-                position: absolute;
-                line-height: 18px;
-                top: -10px;
-                left: 10px;
-                border-radius: 8px;
-                text-align: center;
-                font-size: 13px;
-            }
-            .inp1 {
-                flex: 1; /* 修改这一行 */
-                height: 30px;
-                border: 0;
-                outline: none;
-                background-color: #fff;
-            }
-            .inp2 {
-                width: 100%;
-                height: 80px;
-                border: 0;
-                outline: none;
-                background-color: #fff;
-                line-height: 20px;
-                resize: none;
-                font-family: 'micosoft';
-            }
-            .showlist {
-                min-height: 30px;
-                line-height: 30px;
-                align-items: center;
-                display: inline-flex; /* 修改这一行 */
-                flex-wrap: wrap;
-                .onekeyword {
-                    height: 20px;
-                    line-height: 20px;
-                    padding: 0 10px;
-                    background-color: #00aeec;
-                    color: #fff;
-                    border-radius: 4px;
-                    margin: 5px 10px 5px 0;
-                    position: relative;
-                    z-index: 101;
-                    .iconfont {
-                        position: absolute;
-                        top: -8px;
-                        font-size: 12px;
-                        cursor: pointer;
-                        right: -5px;
-                        color: rgb(199, 16, 16);
-                    }
-                }
-            }
-            // 子类获得focus时候
-            &:focus-within {
-                border-color: base.$activecolor;
-                .tptext {
-                    color: base.$activecolor;
-                }
-              }
+        &::-webkit-scrollbar-track {
+          background: #fff;
+          border-radius: 3px;
         }
-        .btnline {
-            width: 100%;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            .btn {
-                margin-top: 30px;
-                width: 120px;
-                height: 40px;
-                width: 120px;
-                text-align: center;
-                height: 40px;
-                line-height: 40px;
-                color: #9499a0;
-                font-size: 14px;
-                background-color: base.$nobtn;
-                border-radius: 4px;
-                cursor: pointer;
-                user-select: none;
-            }
-            .okbtn {
-                margin-left: 20px;
-                background-color: base.$readybtn;
-                color: #fff;
-                &:hover {
-                    background-color: base.$btnc;                    
-                }
 
-            }
+        &::-webkit-scrollbar-thumb {
+          background: base.$activecolor;
+          border-radius: 3px;
+          border: none;
+          cursor: default;
+
+          &:hover {
+            background-color: #24a6e7;
+          }
         }
+      }
+      // 子类获得focus时候
+      &:focus-within {
+        border-color: base.$activecolor;
+        .tptext {
+          color: base.$activecolor;
+        }
+      }
     }
+  }
+  .btnline {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    .btn {
+      width: 120px;
+      height: 40px;
+      width: 120px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      color: #9499a0;
+      font-size: 14px;
+      background-color: base.$nobtn;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .okbtn {
+      margin-left: 20px;
+      background-color: base.$readybtn;
+      color: #fff;
+      &:hover {
+        background-color: base.$btnc;
+      }
+    }
+  }
+
+  .collectbox {
+    width: 100%;
+    height: 360px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 0; // 只显示垂直滚动条
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: base.$activecolor;
+      border-radius: 3px;
+      border: none;
+      cursor: default;
+
+      &:hover {
+        background-color: #24a6e7;
+      }
+    }
+    .oneline {
+      margin-bottom: 6px;
+      width: 100%;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      cursor: pointer;
+      user-select: none;
+      &:hover {
+        background-color: base.$activecolor;
+        color: #fff;
+      }
+      .leftsp {
+        flex: 1;
+        height: 20px;
+        line-height: 20px;
+        display: flex;
+      }
+      .rightnum {
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        text-align: center;
+      }
+    }
+    .onelineactive {
+      background-color: base.$activecolor;
+      color: #fff;
+    }
+  }
+  .spacebox {
+    width: 100%;
+    height: 10px;
+    border-bottom: 1px solid #e3e5e7;
+  }
+  .addone {
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid #e3e5e7;
+    background-color: #fff;
+    margin-bottom: 10px;
+    .newone {
+      flex: 1;
+      height: 100%;
+      border: 0;
+      outline: none;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .createbtn {
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      user-select: none;
+      background-color: #e3e5e7;
+      color: #222;
+    }
+    &:focus-within {
+      border-color: base.$activecolor;
+      .createbtn {
+        background-color: base.$activecolor;
+        color: #fff;
+      }
+    }
+  }
 }

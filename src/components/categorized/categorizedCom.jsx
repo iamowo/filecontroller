@@ -2,6 +2,9 @@ import { useRef, useState, useEffect, memo } from "react";
 import "./categorized.scss";
 import { debounce } from "../../util/utils";
 import { matchingTags } from "../../api/tag";
+import { getOneType, addOneFolder } from "../../api/favoritesfloder";
+import { useLocation } from "react-router-dom";
+import { cateorizeOneFile } from "../../api/file";
 
 const OneInput = memo((props) => {
   const {
@@ -26,7 +29,6 @@ const OneInput = memo((props) => {
 
     if (key.trim().length > 0) {
       const res = await matchingTags(key);
-      console.log("res is: ", res);
       if (res.length > 0) {
         setMatchingkey(res);
       } else {
@@ -113,6 +115,9 @@ const OneInput = memo((props) => {
         >
           <div className="tptext">标签</div>
           <div className="taginput-container">
+            {keywordlist.length === 0 && keyinp.length === 0 && (
+              <span className="tishi">回车生成tag</span>
+            )}
             {keywordlist.map((item, index) => (
               <div
                 className="onekeyword"
@@ -152,7 +157,9 @@ const OneInput = memo((props) => {
 });
 
 const CategorizedCom = (props) => {
-  const { showtype, closeClassify } = props;
+  const { showtype, closeClassify, uptype } = props;
+  const location = useLocation();
+
   const [next, setNext] = useState(0);
 
   const [keywordlist, setKeywordList] = useState([]), // 输入关键词列表
@@ -161,12 +168,60 @@ const CategorizedCom = (props) => {
   const [titleinpt, setTitleinp] = useState(""),
     [introinp, setIntroinp] = useState("");
 
-  const [favoriteindex, setFavoriteindex] = useState(-1);
+  const [favoriteindex, setFavoriteindex] = useState(-1),
+    [favoritelist, setFavoritelist] = useState([]),
+    [newFavTitle, setNewFavTitle] = useState("");
 
   useEffect(() => {
-    const getData = async () => {};
+    const getData = async () => {
+      // 0视频 1图片 2漫画 3音乐
+      const res = await getOneType(uptype);
+      console.log(res);
+      setFavoritelist(res);
+    };
     getData();
   }, []);
+
+  const createNewFolder = async () => {
+    if (newFavTitle.trim().length > 0 && newFavTitle.trim() !== "") {
+      const data = {
+        title: newFavTitle,
+        type: 0,
+      };
+      const res = await addOneFolder(data);
+      if (res) {
+        setNewFavTitle("");
+        const res2 = await getOneType(uptype);
+        setFavoriteindex(res2.length - 1);
+        setFavoritelist(res2);
+      }
+    } else {
+      alert("title is empty");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && newFavTitle.trim()) {
+      e.preventDefault();
+      createNewFolder();
+    }
+  };
+
+  // 分类一个
+  const categorizeFnc = async () => {
+    const data = {
+      title: "1",
+      intro: introinp,
+      tags: keywordlist,
+      type: uptype,
+      ffid: 0,
+      // 未分类的地址
+      ucpath: "",
+    };
+    const res = await cateorizeOneFile(data);
+    if (res) {
+    }
+  };
   return (
     <div>
       {next === 0 && (
@@ -212,29 +267,58 @@ const CategorizedCom = (props) => {
         <div className="categorizedbox">
           <div className="topline">
             <span className="midtext">添加收藏</span>
-            <span className="iconfont" onClick={() => setNext(0)}>
+            <span
+              className="iconfont"
+              onClick={() => {
+                setNewFavTitle("");
+                setFavoriteindex(-1);
+                setNext(0);
+              }}
+            >
               &#xe66a;
             </span>
           </div>
           <div className="collectbox">
-            <div
-              className={`oneline ${
-                favoriteindex === -1 ? "onelineactive" : ""
-              }`}
-            >
-              <div className="leftsp">
-                <span>12</span>
+            {newFavTitle.length > 0 && <div className="canntdo"></div>}
+            {favoritelist.map((item, index) => (
+              <div
+                className={`oneline ${
+                  favoriteindex === index ? "onelineactive" : ""
+                }`}
+                onClick={() => {
+                  if (favoriteindex !== index) {
+                    setFavoriteindex(index);
+                  } else {
+                    setFavoriteindex(-1);
+                  }
+                }}
+              >
+                <div className="leftsp">
+                  <span>{item.title}</span>
+                </div>
+                <span className="rightnum">{item.nums}</span>
               </div>
-              <span className="rightnum">12</span>
-            </div>
+            ))}
           </div>
-          <div className="addone">
-            <input type="text" className="newone" />
-            <div className="createbtn">新建</div>
+          <div
+            className={`addone ${
+              newFavTitle.length > 0 ? "addone-active" : ""
+            }`}
+          >
+            <input
+              type="text"
+              className="newone"
+              value={newFavTitle}
+              onChange={(e) => setNewFavTitle(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <div className="createbtn" onClick={createNewFolder}>
+              新建
+            </div>
           </div>
           <div className="spacebox"></div>
           <div className="btnline">
-            <div className="btn okbtn" onClick={() => setNext(1)}>
+            <div className="btn okbtn" onClick={categorizeFnc}>
               确定
             </div>
           </div>

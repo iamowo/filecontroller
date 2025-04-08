@@ -77,6 +77,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        position: relative;
+        .tishi {
+          position: absolute;
+          left: 8px;
+          top: 50%;
+          translate: 0 -50%;
+        }
         .onekeyword {
           display: inline-flex;
           height: 30px;
@@ -207,6 +214,16 @@
     box-sizing: border-box;
     padding-right: 10px;
     margin-bottom: 10px;
+    position: relative;
+    .canntdo {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+      background-color: #f8f8f880;
+    }
     &::-webkit-scrollbar {
       width: 6px;
       height: 0; // 只显示垂直滚动条
@@ -299,6 +316,13 @@
         background-color: base.$activecolor;
         color: #fff;
       }
+    }
+  }
+  .addone-active {
+    border-color: base.$activecolor;
+    .createbtn {
+      background-color: base.$activecolor;
+      color: #fff;
     }
   }
 }

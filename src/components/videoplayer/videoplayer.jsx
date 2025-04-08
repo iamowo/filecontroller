@@ -427,7 +427,7 @@ const VideoPlayer = (props) => {
   return (
     <div className="bbg">
       {classifyflag && (
-        <CategorizedCom showtype={0} closeClassify={closeClassify} />
+        <CategorizedCom showtype={0} closeClassify={closeClassify} uptype={0} />
       )}
       <div className="closebg" onClick={() => closeDetail()}></div>
       <div className="vieoplayerbox">

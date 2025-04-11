@@ -211,6 +211,7 @@ const CategorizedCom = (props) => {
   const categorizeFnc = async () => {
     const data = {
       title: "1",
+      filename: 123,
       intro: introinp,
       tags: keywordlist,
       type: uptype,
@@ -220,6 +221,7 @@ const CategorizedCom = (props) => {
     };
     const res = await cateorizeOneFile(data);
     if (res) {
+      console.log("收藏成功");
     }
   };
   return (

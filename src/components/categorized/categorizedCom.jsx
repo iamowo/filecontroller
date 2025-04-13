@@ -116,7 +116,9 @@ const OneInput = memo((props) => {
           <div className="tptext">标签</div>
           <div className="taginput-container">
             {keywordlist.length === 0 && keyinp.length === 0 && (
-              <span className="tishi">回车生成tag</span>
+              <span className="tishi"
+                style={{color: "#e3e5e7"}}
+              >回车生成tag</span>
             )}
             {keywordlist.map((item, index) => (
               <div
@@ -124,7 +126,7 @@ const OneInput = memo((props) => {
                 key={index}
                 onClick={() => removeTag(index)}
               >
-                <soan className="iconfont">&#xe640;</soan>
+                <soan className="iconfont">&#xe66a;</soan>
                 <span>{item}</span>
               </div>
             ))}

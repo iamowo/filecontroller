@@ -21,8 +21,6 @@ const Content = (props) => {
   const [srotindex, setSortindex] = useState(0);
 
   useEffect(() => {
-    console.log("1111");
-
     const getData = async () => {
       if (categorized) {
         // 已经分类

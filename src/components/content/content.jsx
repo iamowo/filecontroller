@@ -9,6 +9,7 @@ import {
 } from "../../api/file";
 import VideoContent from "../contentbox/videocontent";
 import ImgContent from "../contentbox/imgcontent";
+import MangaContent from "../contentbox/mangacontent";
 import Page from "../page/page";
 
 const Content = (props) => {
@@ -43,13 +44,18 @@ const Content = (props) => {
         } else if (menuindex === 1) {
           const res = await Promise.all([
             getUncategorizedImg(0, 50),
-            getLength("video"),
+            getLength("img"),
           ]);
           setDatalist(res[0]);
           setNums(res[1]);
         } else if (menuindex === 2) {
-          const res = await getUncategorizedManga(0, 50);
-          setDatalist(res);
+          const res = await Promise.all([
+            getUncategorizedManga(0, 50),
+            getLength("manga"),
+          ]);
+          console.log("manga res:", res[0]);
+          setDatalist(res[0]);
+          setNums(res[1]);
         } else if (menuindex === 3) {
           const res = await getUncategorizedMusic(0, 50);
           setDatalist(res);
@@ -108,6 +114,13 @@ const Content = (props) => {
           <div className="imgcontentstyle">
             {datalist?.map((item) => (
               <ImgContent data={item} />
+            ))}
+          </div>
+        )}
+        {menuindex === 2 && (
+          <div className="mangacontentstyle">
+            {datalist?.map((item) => (
+              <MangaContent data={item} />
             ))}
           </div>
         )}

@@ -1,0 +1,15 @@
+.mangabox {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  .imgbox {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+  }
+}
